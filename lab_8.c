@@ -1,73 +1,19 @@
-// Lab 8: Tree Operations - Binary Tree with Inorder Traversal
 #include<stdio.h>
 #include<stdlib.h>
-
-struct TreeNode {
-    int data;
-    struct TreeNode* left;
-    struct TreeNode* right;
-};
-
-struct TreeNode* createNode(int data) {
-    struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
-    newNode->data = data;
-    newNode->left = NULL;
-    newNode->right = NULL;
-    return newNode;
+struct Node { int data; struct Node *l, *r; };
+struct Node* new(int x) {
+    struct Node* n = malloc(sizeof(struct Node));
+    n->data = x; n->l = n->r = NULL; return n;
 }
-
-void inorderTraversal(struct TreeNode* root) {
-    if(root != NULL) {
-        inorderTraversal(root->left);
-        printf("%d ", root->data);
-        inorderTraversal(root->right);
-    }
-}
-
-void preorderTraversal(struct TreeNode* root) {
-    if(root != NULL) {
-        printf("%d ", root->data);
-        preorderTraversal(root->left);
-        preorderTraversal(root->right);
-    }
-}
-
-void postorderTraversal(struct TreeNode* root) {
-    if(root != NULL) {
-        postorderTraversal(root->left);
-        postorderTraversal(root->right);
-        printf("%d ", root->data);
-    }
-}
-
+void inorder(struct Node* r) { if(r) { inorder(r->l); printf("%d ", r->data); inorder(r->r); } }
+void preorder(struct Node* r) { if(r) { printf("%d ", r->data); preorder(r->l); preorder(r->r); } }
+void postorder(struct Node* r) { if(r) { postorder(r->l); postorder(r->r); printf("%d ", r->data); } }
 int main() {
-    // Creating a binary tree
-    struct TreeNode* root = createNode(1);
-    root->left = createNode(2);
-    root->right = createNode(3);
-    root->left->left = createNode(4);
-    root->left->right = createNode(5);
-    root->right->left = createNode(6);
-    root->right->right = createNode(7);
-    
-    printf("Inorder Traversal: ");
-    inorderTraversal(root);
-    printf("\n");
-    
-    printf("Preorder Traversal: ");
-    preorderTraversal(root);
-    printf("\n");
-    
-    printf("Postorder Traversal: ");
-    postorderTraversal(root);
-    printf("\n");
-    
+    struct Node* root = new(1);
+    root->l = new(2); root->r = new(3);
+    root->l->l = new(4); root->l->r = new(5);
+    printf("Inorder: "); inorder(root); printf("\n");
+    printf("Preorder: "); preorder(root); printf("\n");
+    printf("Postorder: "); postorder(root); printf("\n");
     return 0;
 }
-
-/*
-Sample Output:
-Inorder Traversal: 4 2 5 1 6 3 7
-Preorder Traversal: 1 2 4 5 3 6 7
-Postorder Traversal: 4 5 2 6 7 3 1
-*/
