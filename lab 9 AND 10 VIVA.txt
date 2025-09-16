@@ -1,0 +1,197 @@
+LAB 9 AND 10 VIVA QUESTIONS AND ANSWERS
+
+=== LAB 9: BINARY SEARCH TREE (BST) ===
+
+Q1. What is a Binary Search Tree (BST)?
+A1. A BST is a binary tree with ordering property:
+    - All nodes in left subtree < root node
+    - All nodes in right subtree > root node
+    - Both left and right subtrees are also BSTs
+    - No duplicate values (in standard BST)
+
+Q2. What are the advantages of a BST?
+A2. - Efficient searching: O(log n) average case
+     - Inorder traversal gives sorted sequence
+     - Dynamic size (can grow/shrink)
+     - Efficient insertion and deletion
+     - Range queries possible
+     - No need to sort data beforehand
+
+Q3. What is the time complexity of search in BST?
+A3. Best case: O(1) - element is root
+    Average case: O(log n) - balanced tree
+    Worst case: O(n) - skewed tree (becomes like linked list)
+
+Q4. What is the time complexity of insertion in BST?
+A4. Same as search complexity:
+    Best case: O(1), Average case: O(log n), Worst case: O(n)
+    We need to find the correct position first, then insert
+
+Q5. What is the time complexity of deletion in BST?
+A5. Same as search complexity: O(log n) average, O(n) worst case
+    Steps: Find node + Handle three deletion cases
+
+Q6. Can BST contain duplicate values?
+A6. Standard BST doesn't allow duplicates. However, variations can handle duplicates by:
+    - Storing count in each node
+    - Allowing duplicates in left OR right subtree consistently
+    - Using <= or >= in one direction
+
+Q7. What are the three cases of deletion in BST?
+A7. Case 1: Node has no children (leaf) - Simply delete
+    Case 2: Node has one child - Replace node with its child
+    Case 3: Node has two children - Replace with inorder successor or predecessor
+
+Q8. What is inorder successor and predecessor?
+A8. Inorder Successor: Next larger element (leftmost node in right subtree)
+    Inorder Predecessor: Next smaller element (rightmost node in left subtree)
+
+Q9. How do you find minimum and maximum elements in BST?
+A9. Minimum: Keep going left until you reach leftmost node
+    Maximum: Keep going right until you reach rightmost node
+    Time complexity: O(h) where h is height
+
+Q10. What is a balanced BST?
+A10. A BST where height difference between left and right subtrees of any node is at most 1.
+     Examples: AVL tree, Red-Black tree
+     Ensures O(log n) operations
+
+Q11. What happens when BST becomes skewed?
+A11. When elements are inserted in sorted order, BST becomes a linear chain (skewed tree).
+     Performance degrades to O(n) for all operations, similar to linked list.
+
+Q12. How do you check if a binary tree is a valid BST?
+A12. Method 1: Inorder traversal should give sorted sequence
+     Method 2: For each node, check if it lies within valid range [min, max]
+     Method 3: Recursively check left < root < right for all nodes
+
+Q13. What is the space complexity of BST operations?
+A13. Insertion/Deletion/Search: O(h) due to recursion stack
+     Traversal: O(h) for recursive, O(1) for iterative
+     h = log n for balanced tree, h = n for skewed tree
+
+=== LAB 10: GRAPH OPERATIONS (BFS/DFS) ===
+
+Q14. What is a graph in data structures?
+A14. A graph is a non-linear data structure consisting of:
+     - Vertices (nodes): Set of objects
+     - Edges: Connections between vertices
+     - Can represent relationships, networks, paths, etc.
+
+Q15. What are directed and undirected graphs?
+A15. Directed Graph (Digraph): Edges have direction, represented by arrows
+     - Edge (A,B) ≠ Edge (B,A)
+     - Used for: Web pages, social media followers, road networks with one-way streets
+     Undirected Graph: Edges have no direction
+     - Edge (A,B) = Edge (B,A)
+     - Used for: Friendship networks, computer networks
+
+Q16. What is an adjacency matrix?
+A16. A 2D array representation of graph where:
+     - adj[i][j] = 1 if edge exists between vertex i and j
+     - adj[i][j] = 0 if no edge exists
+     - For undirected graphs: adj[i][j] = adj[j][i] (symmetric)
+     - Space complexity: O(V²)
+
+Q17. What are the advantages and disadvantages of adjacency matrix?
+A17. Advantages:
+     - Easy to implement and understand
+     - Quick edge lookup: O(1)
+     - Good for dense graphs
+     Disadvantages:
+     - Space inefficient for sparse graphs: O(V²)
+     - Adding/removing vertices is expensive
+
+Q18. What is an adjacency list?
+A18. Array of linked lists where:
+     - Each vertex has a list of its adjacent vertices
+     - adj[i] contains all vertices connected to vertex i
+     - Space complexity: O(V + E)
+     - Better for sparse graphs
+
+Q19. What is the difference between BFS and DFS?
+A19. BFS (Breadth First Search):
+     - Explores level by level (breadth-wise)
+     - Uses queue data structure
+     - Finds shortest path in unweighted graphs
+     - Space: O(V), Time: O(V + E)
+     
+     DFS (Depth First Search):
+     - Explores as deep as possible (depth-wise)
+     - Uses stack (recursion or explicit)
+     - Good for topological sorting, cycle detection
+     - Space: O(V), Time: O(V + E)
+
+Q20. What are the applications of BFS?
+A20. - Shortest path in unweighted graphs
+     - Level order traversal of trees
+     - Finding connected components
+     - Bipartite graph checking
+     - Web crawling (breadth-first)
+     - Social networking (friends at distance k)
+
+Q21. What are the applications of DFS?
+A21. - Topological sorting
+     - Cycle detection in graphs
+     - Finding strongly connected components
+     - Maze solving
+     - Backtracking algorithms
+     - Tree/graph traversal
+
+Q22. What is the time complexity of BFS and DFS?
+A22. Both BFS and DFS:
+     - Adjacency Matrix: O(V²)
+     - Adjacency List: O(V + E)
+     Where V = vertices, E = edges
+
+Q23. What is the space complexity of BFS and DFS?
+A23. BFS: O(V) for queue and visited array
+     DFS: O(V) for stack/recursion and visited array
+     In worst case, queue/stack can hold all vertices
+
+Q24. How do you detect a cycle in an undirected graph using DFS?
+A24. During DFS, if we encounter a visited vertex that is not the parent of current vertex, then there's a cycle.
+     Keep track of parent to avoid going back to immediate parent.
+
+Q25. How do you detect a cycle in a directed graph using DFS?
+A25. Use three colors:
+     - White (0): Unvisited
+     - Gray (1): Currently being processed
+     - Black (2): Completely processed
+     If we encounter a gray vertex during DFS, there's a back edge (cycle).
+
+Q26. What is a connected graph?
+A26. An undirected graph where there's a path between every pair of vertices.
+     For directed graphs, it's called strongly connected if there's a directed path between every pair.
+
+Q27. How do you find connected components in a graph?
+A27. Use DFS or BFS:
+     - Start DFS/BFS from unvisited vertex
+     - All vertices reached form one component
+     - Repeat for remaining unvisited vertices
+     - Number of DFS/BFS calls = number of components
+
+Q28. What is topological sorting?
+A28. Linear ordering of vertices in a directed acyclic graph (DAG) such that for every edge (u,v), u comes before v in the ordering.
+     Applications: Course prerequisites, build systems, task scheduling
+
+Q29. What is the shortest path problem?
+A29. Finding the path with minimum weight/distance between two vertices.
+     - Unweighted graphs: BFS
+     - Weighted graphs: Dijkstra's algorithm, Bellman-Ford
+     - All pairs: Floyd-Warshall
+
+Q30. What is a bipartite graph?
+A30. A graph whose vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.
+     Check using BFS/DFS with 2-coloring: if we can color graph with 2 colors, it's bipartite.
+
+PRACTICAL TIPS:
+- Always maintain BST property during insertion/deletion
+- Practice all three deletion cases thoroughly in BST
+- Understand the relationship between inorder traversal and sorted order
+- Remember that BST performance depends on balance
+- Understand when to use BFS vs DFS based on the problem
+- Practice implementing both adjacency matrix and list representations
+- Always initialize visited array before graph traversal
+- Handle disconnected graphs by checking all vertices
+- Practice tracing BFS/DFS step by step on paper
