@@ -1,0 +1,188 @@
+LAB 10 VIVA QUESTIONS AND ANSWERS
+
+=== LAB 10: GRAPH OPERATIONS (BFS/DFS) ===
+
+Q1. What is a graph in data structures?
+A1. A graph is a non-linear data structure consisting of:
+    - Vertices (nodes): Set of objects
+    - Edges: Connections between vertices
+    - Can represent relationships, networks, paths, etc.
+
+Q2. What are directed and undirected graphs?
+A2. Directed Graph (Digraph): Edges have direction, represented by arrows
+    - Edge (A,B) ≠ Edge (B,A)
+    - Used for: Web pages, social media followers, road networks with one-way streets
+    Undirected Graph: Edges have no direction
+    - Edge (A,B) = Edge (B,A)
+    - Used for: Friendship networks, computer networks
+
+Q3. What is an adjacency matrix?
+A3. A 2D array representation of graph where:
+    - adj[i][j] = 1 if edge exists between vertex i and j
+    - adj[i][j] = 0 if no edge exists
+    - For undirected graphs: adj[i][j] = adj[j][i] (symmetric)
+    - Space complexity: O(V²)
+
+Q4. What are the advantages and disadvantages of adjacency matrix?
+A4. Advantages:
+    - Easy to implement and understand
+    - Quick edge lookup: O(1)
+    - Good for dense graphs
+    Disadvantages:
+    - Space inefficient for sparse graphs: O(V²)
+    - Adding/removing vertices is expensive
+
+Q5. What is an adjacency list?
+A5. Array of linked lists where:
+    - Each vertex has a list of its adjacent vertices
+    - adj[i] contains all vertices connected to vertex i
+    - Space complexity: O(V + E)
+    - Better for sparse graphs
+
+Q6. What is the difference between BFS and DFS?
+A6. BFS (Breadth First Search):
+    - Explores level by level (breadth-wise)
+    - Uses queue data structure
+    - Finds shortest path in unweighted graphs
+    - Space: O(V), Time: O(V + E)
+    
+    DFS (Depth First Search):
+    - Explores as deep as possible (depth-wise)
+    - Uses stack (recursion or explicit)
+    - Good for topological sorting, cycle detection
+    - Space: O(V), Time: O(V + E)
+
+Q7. What are the applications of BFS?
+A7. - Shortest path in unweighted graphs
+     - Level order traversal of trees
+     - Finding connected components
+     - Bipartite graph checking
+     - Web crawling (breadth-first)
+     - Social networking (friends at distance k)
+
+Q8. What are the applications of DFS?
+A8. - Topological sorting
+     - Cycle detection in graphs
+     - Finding strongly connected components
+     - Maze solving
+     - Backtracking algorithms
+     - Tree/graph traversal
+
+Q9. What is the time complexity of BFS and DFS?
+A9. Both BFS and DFS:
+    - Adjacency Matrix: O(V²)
+    - Adjacency List: O(V + E)
+    Where V = vertices, E = edges
+
+Q10. What is the space complexity of BFS and DFS?
+A10. BFS: O(V) for queue and visited array
+     DFS: O(V) for stack/recursion and visited array
+     In worst case, queue/stack can hold all vertices
+
+Q11. How do you detect a cycle in an undirected graph using DFS?
+A11. During DFS, if we encounter a visited vertex that is not the parent of current vertex, then there's a cycle.
+     Keep track of parent to avoid going back to immediate parent.
+
+Q12. How do you detect a cycle in a directed graph using DFS?
+A12. Use three colors:
+     - White (0): Unvisited
+     - Gray (1): Currently being processed
+     - Black (2): Completely processed
+     If we encounter a gray vertex during DFS, there's a back edge (cycle).
+
+Q13. What is a connected graph?
+A13. An undirected graph where there's a path between every pair of vertices.
+     For directed graphs, it's called strongly connected if there's a directed path between every pair.
+
+Q14. How do you find connected components in a graph?
+A14. Use DFS or BFS:
+     - Start DFS/BFS from unvisited vertex
+     - All vertices reached form one component
+     - Repeat for remaining unvisited vertices
+     - Number of DFS/BFS calls = number of components
+
+Q15. What is topological sorting?
+A15. Linear ordering of vertices in a directed acyclic graph (DAG) such that for every edge (u,v), u comes before v in the ordering.
+     Applications: Course prerequisites, build systems, task scheduling
+
+Q16. How do you implement topological sorting?
+A16. Method 1: DFS-based - Use stack, add vertex to stack after processing all neighbors
+     Method 2: Kahn's algorithm - Use in-degree, process vertices with in-degree 0
+
+Q17. What is the shortest path problem?
+A17. Finding the path with minimum weight/distance between two vertices.
+     - Unweighted graphs: BFS
+     - Weighted graphs: Dijkstra's algorithm, Bellman-Ford
+     - All pairs: Floyd-Warshall
+
+Q18. What is a bipartite graph?
+A18. A graph whose vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent.
+     Check using BFS/DFS with 2-coloring: if we can color graph with 2 colors, it's bipartite.
+
+Q19. What is the difference between tree and graph?
+A19. Tree:
+     - Connected acyclic graph
+     - V-1 edges for V vertices
+     - Unique path between any two vertices
+     - Hierarchical structure
+     
+     Graph:
+     - Can have cycles
+     - Any number of edges
+     - Multiple paths possible
+     - Non-hierarchical
+
+Q20. Where are graphs used in real-world applications?
+A20. - Social networks (Facebook, LinkedIn)
+     - Maps and GPS navigation
+     - Internet and web structure
+     - Computer networks
+     - Recommendation systems
+     - Circuit design
+     - Dependency resolution
+     - Game development (pathfinding)
+
+Q21. What is a weighted graph?
+A21. A graph where each edge has an associated weight/cost.
+     Used to represent: distances, costs, capacities, etc.
+     Requires modified algorithms for shortest path, MST, etc.
+
+Q22. What is minimum spanning tree (MST)?
+A22. A subgraph that:
+     - Connects all vertices
+     - Has minimum total edge weight
+     - Is a tree (V-1 edges, no cycles)
+     Algorithms: Kruskal's, Prim's
+
+Q23. How do you represent a graph in memory?
+A23. Three main ways:
+     - Adjacency Matrix: 2D array
+     - Adjacency List: Array of lists
+     - Edge List: List of all edges
+     Choice depends on graph density and operations needed.
+
+Q24. What is graph traversal and why is it important?
+A24. Visiting all vertices in a systematic manner.
+     Important for:
+     - Searching elements
+     - Finding paths
+     - Checking connectivity
+     - Solving graph problems
+     - Pattern recognition
+
+Q25. How do you find the diameter of a graph?
+A25. Diameter is the longest shortest path between any two vertices.
+     Algorithm:
+     - Run BFS/shortest path from each vertex
+     - Find maximum distance among all pairs
+     - For unweighted: BFS from each vertex
+     - For weighted: Floyd-Warshall or multiple Dijkstra
+
+PRACTICAL TIPS:
+- Understand when to use BFS vs DFS based on the problem
+- Practice implementing both adjacency matrix and list representations
+- Always initialize visited array before traversal
+- Handle disconnected graphs by checking all vertices
+- Understand the relationship between graph properties and algorithm choice
+- Practice tracing BFS/DFS step by step on paper
+- Remember that graph problems often have multiple solution approaches

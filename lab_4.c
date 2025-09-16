@@ -19,3 +19,10 @@ int main() {
     for(int i = 0; i < n; i++) printf("%d ", a[i]);
     return 0;
 }
+
+/*
+Enter n: 5
+Enter elements: 64 34 25 12 22
+Original: 64 34 25 12 22
+Sorted: 12 22 25 34 64
+*/

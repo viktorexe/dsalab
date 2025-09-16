@@ -19,3 +19,10 @@ int main() {
     enq(40); show();
     return 0;
 }
+
+/*
+10 20 30
+Dequeued: 10
+20 30
+20 30 40
+*/

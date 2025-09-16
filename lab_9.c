@@ -20,3 +20,8 @@ int main() {
     printf("Search 30: %s\n", search(root, 30) ? "Found" : "Not Found");
     return 0;
 }
+
+/*
+Inorder: 20 30 40 50 70
+Search 30: Found
+*/

@@ -21,3 +21,13 @@ int main() {
     for(i = 0; i < n; i++) printf("%d ", arr[i]);
     return 0;
 }
+
+/*
+Enter size: 5
+Enter elements: 10 20 30 40 50
+Array: 10 20 30 40 50
+Insert pos val: 3 25
+After insert: 10 20 25 30 40 50
+Delete pos: 2
+After delete: 10 25 30 40 50
+*/

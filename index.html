@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Lab Viva Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .lab-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .lab-btn {
+            background: #f8f9fa;
+            color: #495057;
+            border: 2px solid #dee2e6;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .lab-btn:hover, .lab-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            background: #ffffff;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            color: #495057;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        
+        .lab-content {
+            display: none;
+            width: 100%;
+        }
+        
+        .lab-content.active {
+            display: block;
+        }
+        
+        .question-item {
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .question {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .answer {
+            color: #495057;
+            white-space: pre-line;
+            line-height: 1.7;
+            font-size: 1rem;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .lab-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSA Lab Viva Questions</h1>
+        
+        <div class="lab-selector">
+            <button class="lab-btn active" onclick="showLab('lab12')">Lab 1 & 2</button>
+            <button class="lab-btn" onclick="showLab('lab34')">Lab 3 & 4</button>
+            <button class="lab-btn" onclick="showLab('lab56')">Lab 5 & 6</button>
+            <button class="lab-btn" onclick="showLab('lab78')">Lab 7 & 8</button>
+            <button class="lab-btn" onclick="showLab('lab910')">Lab 9 & 10</button>
+        </div>
+        
+        <input type="text" class="search-box" placeholder="Search questions..." onkeyup="searchQuestions()">
+        
+        <div id="lab12" class="lab-content active">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 1: 1-D ARRAY OPERATIONS</h2>
+            
+            <div class="question-item">
+                <div class="question">Q1. What is an array and what are its characteristics?</div>
+                <div class="answer">An array is a collection of elements of the same data type stored in contiguous memory locations. Characteristics:
+- Fixed size (static)
+- Same data type elements
+- Random access using index
+- Zero-based indexing in C</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q2. What are the advantages and disadvantages of arrays?</div>
+                <div class="answer">Advantages: Fast access O(1), simple implementation, cache friendly
+Disadvantages: Fixed size, insertion/deletion is costly O(n), memory waste if not fully used</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q3. How are elements accessed in an array?</div>
+                <div class="answer">Elements are accessed using index: arr[index]. The address is calculated as: base_address + (index * size_of_datatype)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q4. What is the time complexity of insertion in an array?</div>
+                <div class="answer">Best case: O(1) - insertion at end
+Average case: O(n) - insertion at middle
+Worst case: O(n) - insertion at beginning (shift all elements)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q5. What is the time complexity of deletion in an array?</div>
+                <div class="answer">Best case: O(1) - deletion from end
+Average case: O(n) - deletion from middle
+Worst case: O(n) - deletion from beginning (shift all elements)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q6. Can we change the size of an array after declaration?</div>
+                <div class="answer">No, in C arrays have fixed size. We cannot increase or decrease the size after declaration. We need dynamic memory allocation for variable size.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q7. How does memory allocation work for arrays?</div>
+                <div class="answer">Arrays are allocated in contiguous memory blocks. For int arr[5], if base address is 1000 and int size is 4 bytes:
+arr[0] = 1000, arr[1] = 1004, arr[2] = 1008, etc.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q8. What is array traversal and its time complexity?</div>
+                <div class="answer">Traversal means visiting each element of array once. Time complexity is O(n) where n is number of elements.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q9. What happens when we access array out of bounds?</div>
+                <div class="answer">C doesn't check bounds, so it may access garbage values or cause segmentation fault. It's undefined behavior.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q10. What is the difference between array size and array length?</div>
+                <div class="answer">Size: Total memory allocated (size * sizeof(datatype))
+Length: Number of elements currently stored (may be less than capacity)</div>
+            </div>
+            
+            <h2 style="color: #2c3e50; margin: 30px 0 20px 0; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 2: 2-D ARRAY OPERATIONS</h2>
+            
+            <div class="question-item">
+                <div class="question">Q11. What is a two-dimensional array?</div>
+                <div class="answer">A 2-D array is an array of arrays, representing data in rows and columns format like a matrix. Syntax: datatype arr[rows][cols];</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q12. How is a 2-D array stored in memory?</div>
+                <div class="answer">2-D arrays are stored in row-major order in C. For arr[3][4]:
+Row 0: arr[0][0], arr[0][1], arr[0][2], arr[0][3]
+Row 1: arr[1][0], arr[1][1], arr[1][2], arr[1][3]
+Row 2: arr[2][0], arr[2][1], arr[2][2], arr[2][3]</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q13. What are the applications of 2-D arrays?</div>
+                <div class="answer">- Matrix operations (addition, multiplication)
+- Image processing (pixels)
+- Game boards (chess, tic-tac-toe)
+- Tables and spreadsheets
+- Graph adjacency matrices</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q14. Can matrix addition be done for matrices of different sizes?</div>
+                <div class="answer">No, matrix addition requires both matrices to have the same dimensions (same number of rows and columns).</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q15. How do you access elements in a 2-D array?</div>
+                <div class="answer">Using two indices: arr[row][col]. Address calculation: base + (row * cols + col) * sizeof(datatype)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q16. What is the time complexity of matrix addition?</div>
+                <div class="answer">O(m * n) where m is number of rows and n is number of columns, as we need to visit each element once.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q17. How much memory does a 2-D array consume?</div>
+                <div class="answer">Memory = rows * columns * sizeof(datatype). For int arr[3][4]: 3 * 4 * 4 = 48 bytes.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q18. What is the difference between 2-D array and array of pointers?</div>
+                <div class="answer">2-D array: Contiguous memory, fixed size, arr[i][j] syntax
+Array of pointers: Non-contiguous, dynamic size possible, *(*(arr+i)+j) syntax</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q19. Can we initialize a 2-D array partially?</div>
+                <div class="answer">Yes, uninitialized elements are set to 0. Example: int arr[2][3] = {{1,2}, {3}}; gives {{1,2,0}, {3,0,0}}</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q20. How do you pass a 2-D array to a function?</div>
+                <div class="answer">Must specify column size: void func(int arr[][COLS], int rows) or void func(int arr[ROWS][COLS])</div>
+            </div>
+        </div>
+        
+        <div id="lab34" class="lab-content">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 3: SEARCHING ALGORITHMS</h2>
+            
+            <div class="question-item">
+                <div class="question">Q1. What is the difference between linear and binary search?</div>
+                <div class="answer">Linear search checks each element sequentially from start to end. Binary search divides the sorted array in half and compares with middle element, eliminating half the search space each time.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q2. When is binary search preferable over linear search?</div>
+                <div class="answer">Binary search is preferable when:
+- Array is sorted
+- Large dataset (n > 100)
+- Multiple searches on same data
+- Time complexity matters (O(log n) vs O(n))</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q3. What is the time complexity of linear search?</div>
+                <div class="answer">Best case: O(1) - element found at first position
+Average case: O(n/2) = O(n)
+Worst case: O(n) - element at last position or not found</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q4. What is the time complexity of binary search?</div>
+                <div class="answer">Best case: O(1) - element found at middle
+Average case: O(log n)
+Worst case: O(log n)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q5. What is the space complexity of both searches?</div>
+                <div class="answer">Linear search: O(1) - no extra space needed
+Binary search: O(1) for iterative, O(log n) for recursive</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q6. Can binary search be applied to unsorted arrays?</div>
+                <div class="answer">No, binary search requires the array to be sorted. If unsorted, we must sort first (O(n log n)) or use linear search.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q7. What happens if we apply binary search on unsorted array?</div>
+                <div class="answer">It may give incorrect results or fail to find existing elements because the algorithm assumes sorted order for decision making.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q8. Which search is better for small arrays?</div>
+                <div class="answer">Linear search is often better for small arrays (n < 10-20) due to:
+- Simple implementation
+- No sorting requirement
+- Lower constant factors</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q9. What is the mid calculation formula in binary search and why?</div>
+                <div class="answer">mid = left + (right - left) / 2
+This prevents integer overflow that could occur with (left + right) / 2 when left and right are large.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q10. Can we implement binary search recursively?</div>
+                <div class="answer">Yes, binary search can be implemented both iteratively and recursively. Recursive version is more intuitive but uses O(log n) extra space for function calls.</div>
+            </div>
+            
+            <h2 style="color: #2c3e50; margin: 30px 0 20px 0; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 4: BUBBLE SORT</h2>
+            
+            <div class="question-item">
+                <div class="question">Q11. What is bubble sort and how does it work?</div>
+                <div class="answer">Bubble sort repeatedly compares adjacent elements and swaps them if they're in wrong order. Larger elements "bubble up" to their correct positions like air bubbles in water.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q12. What is the time complexity of bubble sort?</div>
+                <div class="answer">Best case: O(n) - when array is already sorted (with optimization)
+Average case: O(n²)
+Worst case: O(n²) - when array is reverse sorted</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q13. What is the space complexity of bubble sort?</div>
+                <div class="answer">O(1) - bubble sort is an in-place sorting algorithm requiring only constant extra space for temporary variables.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q14. Is bubble sort stable? Why?</div>
+                <div class="answer">Yes, bubble sort is stable because equal elements are never swapped. The relative order of equal elements remains unchanged.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q15. How many passes does bubble sort make?</div>
+                <div class="answer">Maximum n-1 passes for n elements. In each pass, at least one element reaches its correct position.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q16. How many comparisons does bubble sort make?</div>
+                <div class="answer">Total comparisons = n(n-1)/2 = O(n²)
+Pass 1: n-1 comparisons
+Pass 2: n-2 comparisons
+...
+Pass n-1: 1 comparison</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q17. How can we optimize bubble sort?</div>
+                <div class="answer">Add a flag to check if any swaps occurred in a pass. If no swaps, array is sorted and we can terminate early.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q18. Which sorting algorithms are more efficient than bubble sort?</div>
+                <div class="answer">Quick sort O(n log n), Merge sort O(n log n), Heap sort O(n log n), Insertion sort O(n²) but better constants.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q19. When might bubble sort be preferred?</div>
+                <div class="answer">- Very small datasets (n < 10)
+- Educational purposes (easy to understand)
+- When simplicity is more important than efficiency
+- Nearly sorted data with optimization</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q20. What is the best case scenario for bubble sort?</div>
+                <div class="answer">When the array is already sorted. With optimization (early termination), it takes only O(n) time with one pass.</div>
+            </div>
+        </div>
+        
+        <div id="lab56" class="lab-content">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 5: LINKED LIST OPERATIONS</h2>
+            
+            <div class="question-item">
+                <div class="question">Q1. What is the difference between an array and a linked list?</div>
+                <div class="answer">Array: Contiguous memory, fixed size, random access O(1), no extra memory for pointers
+Linked List: Non-contiguous memory, dynamic size, sequential access O(n), extra memory for pointers</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q2. What are the types of linked lists?</div>
+                <div class="answer">- Singly Linked List: Each node points to next node
+- Doubly Linked List: Each node has pointers to both next and previous nodes
+- Circular Linked List: Last node points back to first node
+- Circular Doubly Linked List: Combination of circular and doubly</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q3. How is memory allocated for nodes in linked list?</div>
+                <div class="answer">Memory is allocated dynamically using malloc() function. Each node is allocated separately in heap memory, not necessarily contiguous.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q4. What is a node in linked list?</div>
+                <div class="answer">A node is a structure containing:
+- Data field: stores the actual data
+- Pointer field: stores address of next node
+struct Node { int data; struct Node* next; };</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q5. What are the advantages of linked lists over arrays?</div>
+                <div class="answer">- Dynamic size (can grow/shrink during runtime)
+- Efficient insertion/deletion O(1) if position known
+- No memory waste
+- No need to declare size beforehand</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q6. What are the disadvantages of linked lists?</div>
+                <div class="answer">- Extra memory for storing pointers
+- No random access (sequential access only)
+- Not cache friendly due to non-contiguous memory
+- Cannot use binary search directly</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q7. What is the time complexity of insertion in linked list?</div>
+                <div class="answer">At beginning: O(1)
+At end: O(n) if no tail pointer, O(1) with tail pointer
+At given position: O(n) to reach position + O(1) to insert</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q8. What is the time complexity of deletion in linked list?</div>
+                <div class="answer">From beginning: O(1)
+From end: O(n) for singly linked list
+From given position: O(n) to reach position + O(1) to delete</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q9. How do you detect a loop in linked list?</div>
+                <div class="answer">Use Floyd's Cycle Detection (Tortoise and Hare):
+- Use two pointers: slow (moves 1 step) and fast (moves 2 steps)
+- If they meet, there's a loop
+- If fast reaches NULL, no loop</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q10. What is the space complexity of linked list operations?</div>
+                <div class="answer">Insertion/Deletion: O(1) - only temporary variables
+Traversal: O(1) for iterative, O(n) for recursive (due to function call stack)</div>
+            </div>
+            
+            <h2 style="color: #2c3e50; margin: 30px 0 20px 0; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 6: STACK AND RECURSION</h2>
+            
+            <div class="question-item">
+                <div class="question">Q11. What is a stack and what are its characteristics?</div>
+                <div class="answer">Stack is a LIFO (Last In First Out) data structure. Characteristics:
+- Elements added/removed from same end (top)
+- Two main operations: push (insert) and pop (delete)
+- Access only to top element</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q12. What are the basic operations of stack?</div>
+                <div class="answer">- Push: Add element to top
+- Pop: Remove element from top
+- Peek/Top: View top element without removing
+- isEmpty: Check if stack is empty
+- isFull: Check if stack is full (for array implementation)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q13. What are the applications of stacks?</div>
+                <div class="answer">- Function call management (call stack)
+- Expression evaluation and conversion
+- Undo operations in editors
+- Browser back button
+- Balanced parentheses checking
+- Depth First Search (DFS)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q14. What is stack overflow and underflow?</div>
+                <div class="answer">Overflow: Trying to push when stack is full (in array implementation)
+Underflow: Trying to pop from empty stack</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q15. What are the different ways to implement a stack?</div>
+                <div class="answer">- Array implementation: Fixed size, fast access, memory efficient
+- Linked list implementation: Dynamic size, extra memory for pointers</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q16. What is the time complexity of stack operations?</div>
+                <div class="answer">All basic operations (push, pop, peek) have O(1) time complexity in both array and linked list implementations.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q17. What is recursion?</div>
+                <div class="answer">Recursion is a programming technique where a function calls itself to solve a smaller instance of the same problem.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q18. What are the components of recursion?</div>
+                <div class="answer">- Base case: Condition to stop recursion
+- Recursive case: Function calls itself with modified parameters
+- Progress towards base case: Parameters should move towards base case</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q19. What is the difference between iteration and recursion?</div>
+                <div class="answer">Iteration: Uses loops, explicit stack not needed, generally faster, less memory
+Recursion: Uses function calls, implicit stack used, more elegant for some problems, more memory</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q20. What is tail recursion?</div>
+                <div class="answer">Tail recursion occurs when the recursive call is the last operation in the function. It can be optimized to use constant stack space.</div>
+            </div>
+        </div>
+        
+        <div id="lab78" class="lab-content">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 7: QUEUE IMPLEMENTATION</h2>
+            
+            <div class="question-item">
+                <div class="question">Q1. What is a queue and what are its characteristics?</div>
+                <div class="answer">Queue is a FIFO (First In First Out) data structure. Characteristics:
+- Elements inserted at rear/back
+- Elements removed from front
+- Linear data structure
+- Two pointers: front and rear</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q2. What is the difference between stack and queue?</div>
+                <div class="answer">Stack: LIFO structure, single end operations (top), used for function calls, undo operations
+Queue: FIFO structure, two end operations (front/rear), used for scheduling, BFS</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q3. What are the basic operations of queue?</div>
+                <div class="answer">- Enqueue: Add element at rear
+- Dequeue: Remove element from front
+- Front/Peek: View front element without removing
+- isEmpty: Check if queue is empty
+- isFull: Check if queue is full (array implementation)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q4. What are the applications of queues?</div>
+                <div class="answer">- CPU scheduling in operating systems
+- Breadth First Search (BFS)
+- Handling requests in web servers
+- Print job scheduling
+- Call center phone systems
+- Buffer for data streams</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q5. What is a circular queue and why is it needed?</div>
+                <div class="answer">Circular queue treats the array as circular - rear wraps around to beginning when it reaches end. 
+Needed because: Linear queue wastes space even when positions are available at beginning after dequeue operations.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q6. What are the advantages of circular queue over linear queue?</div>
+                <div class="answer">- Better memory utilization
+- No shifting of elements required
+- Constant time operations
+- Solves false overflow problem</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q7. How do you implement a queue using linked list?</div>
+                <div class="answer">Use two pointers: front (points to first node) and rear (points to last node)
+Enqueue: Add at rear, Dequeue: Remove from front
+Advantages: Dynamic size, no overflow condition</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q8. What is the time complexity of queue operations?</div>
+                <div class="answer">All basic operations (enqueue, dequeue, front) have O(1) time complexity in both array and linked list implementations.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q9. What is queue overflow and underflow?</div>
+                <div class="answer">Overflow: Trying to enqueue when queue is full (in array implementation)
+Underflow: Trying to dequeue from empty queue</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q10. How do you check if a circular queue is full or empty?</div>
+                <div class="answer">Empty: front == -1 or front > rear (in some implementations)
+Full: (rear + 1) % size == front
+Alternative: Use a counter variable to track number of elements</div>
+            </div>
+            
+            <h2 style="color: #2c3e50; margin: 30px 0 20px 0; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 8: TREE OPERATIONS</h2>
+            
+            <div class="question-item">
+                <div class="question">Q11. What is a binary tree?</div>
+                <div class="answer">A binary tree is a hierarchical data structure where each node has at most two children, called left child and right child.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q12. What are the different types of tree traversals?</div>
+                <div class="answer">- Inorder: Left → Root → Right (gives sorted order in BST)
+- Preorder: Root → Left → Right (used for copying tree)
+- Postorder: Left → Right → Root (used for deleting tree)
+- Level order: Visit nodes level by level (BFS)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q13. What is the difference between tree and binary tree?</div>
+                <div class="answer">Tree: Each node can have any number of children
+Binary Tree: Each node has at most 2 children (left and right)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q14. What are the properties of binary trees?</div>
+                <div class="answer">- Maximum nodes at level i: 2^i (level starts from 0)
+- Maximum nodes in tree of height h: 2^(h+1) - 1
+- Minimum height for n nodes: log₂(n+1) - 1
+- For n nodes, number of edges = n-1</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q15. What is a complete binary tree?</div>
+                <div class="answer">A binary tree where all levels are completely filled except possibly the last level, which is filled from left to right.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q16. What is a full binary tree?</div>
+                <div class="answer">A binary tree where every node has either 0 or 2 children (no node has exactly 1 child).</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q17. What is a perfect binary tree?</div>
+                <div class="answer">A binary tree where all internal nodes have 2 children and all leaf nodes are at the same level.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q18. What is the difference between binary tree and binary search tree?</div>
+                <div class="answer">Binary Tree: No ordering property, can have any values
+Binary Search Tree: Left subtree < Root < Right subtree, enables efficient searching</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q19. How do you find the height of a binary tree?</div>
+                <div class="answer">Height = max(height of left subtree, height of right subtree) + 1
+Base case: height of NULL tree = -1 or height of single node = 0</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q20. What is the time complexity of tree traversals?</div>
+                <div class="answer">All traversals (inorder, preorder, postorder) have O(n) time complexity as we visit each node exactly once.</div>
+            </div>
+        </div>
+        
+        <div id="lab910" class="lab-content">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 9: BINARY SEARCH TREE (BST)</h2>
+            
+            <div class="question-item">
+                <div class="question">Q1. What is a Binary Search Tree (BST)?</div>
+                <div class="answer">A BST is a binary tree with ordering property:
+- All nodes in left subtree < root node
+- All nodes in right subtree > root node
+- Both left and right subtrees are also BSTs
+- No duplicate values (in standard BST)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q2. What are the advantages of a BST?</div>
+                <div class="answer">- Efficient searching: O(log n) average case
+- Inorder traversal gives sorted sequence
+- Dynamic size (can grow/shrink)
+- Efficient insertion and deletion
+- Range queries possible
+- No need to sort data beforehand</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q3. What is the time complexity of search in BST?</div>
+                <div class="answer">Best case: O(1) - element is root
+Average case: O(log n) - balanced tree
+Worst case: O(n) - skewed tree (becomes like linked list)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q4. What is the time complexity of insertion in BST?</div>
+                <div class="answer">Same as search complexity:
+Best case: O(1), Average case: O(log n), Worst case: O(n)
+We need to find the correct position first, then insert</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q5. What is the time complexity of deletion in BST?</div>
+                <div class="answer">Same as search complexity: O(log n) average, O(n) worst case
+Steps: Find node + Handle three deletion cases</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q6. Can BST contain duplicate values?</div>
+                <div class="answer">Standard BST doesn't allow duplicates. However, variations can handle duplicates by:
+- Storing count in each node
+- Allowing duplicates in left OR right subtree consistently
+- Using <= or >= in one direction</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q7. What are the three cases of deletion in BST?</div>
+                <div class="answer">Case 1: Node has no children (leaf) - Simply delete
+Case 2: Node has one child - Replace node with its child
+Case 3: Node has two children - Replace with inorder successor or predecessor</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q8. What is inorder successor and predecessor?</div>
+                <div class="answer">Inorder Successor: Next larger element (leftmost node in right subtree)
+Inorder Predecessor: Next smaller element (rightmost node in left subtree)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q9. How do you find minimum and maximum elements in BST?</div>
+                <div class="answer">Minimum: Keep going left until you reach leftmost node
+Maximum: Keep going right until you reach rightmost node
+Time complexity: O(h) where h is height</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q10. What is a balanced BST?</div>
+                <div class="answer">A BST where height difference between left and right subtrees of any node is at most 1.
+Examples: AVL tree, Red-Black tree
+Ensures O(log n) operations</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q11. What happens when BST becomes skewed?</div>
+                <div class="answer">When elements are inserted in sorted order, BST becomes a linear chain (skewed tree).
+Performance degrades to O(n) for all operations, similar to linked list.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q12. How do you check if a binary tree is a valid BST?</div>
+                <div class="answer">Method 1: Inorder traversal should give sorted sequence
+Method 2: For each node, check if it lies within valid range [min, max]
+Method 3: Recursively check left < root < right for all nodes</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q13. What is the space complexity of BST operations?</div>
+                <div class="answer">Insertion/Deletion/Search: O(h) due to recursion stack
+Traversal: O(h) for recursive, O(1) for iterative
+h = log n for balanced tree, h = n for skewed tree</div>
+            </div>
+            
+            <h2 style="color: #2c3e50; margin: 30px 0 20px 0; font-weight: 600; font-size: 1.5rem; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">LAB 10: GRAPH OPERATIONS (BFS/DFS)</h2>
+            
+            <div class="question-item">
+                <div class="question">Q1. What is a graph in data structures?</div>
+                <div class="answer">A graph is a non-linear data structure consisting of:
+- Vertices (nodes): Set of objects
+- Edges: Connections between vertices
+- Can represent relationships, networks, paths, etc.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q2. What are directed and undirected graphs?</div>
+                <div class="answer">Directed Graph (Digraph): Edges have direction, represented by arrows
+- Edge (A,B) ≠ Edge (B,A)
+- Used for: Web pages, social media followers, road networks with one-way streets
+Undirected Graph: Edges have no direction
+- Edge (A,B) = Edge (B,A)
+- Used for: Friendship networks, computer networks</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q3. What is an adjacency matrix?</div>
+                <div class="answer">A 2D array representation of graph where:
+- adj[i][j] = 1 if edge exists between vertex i and j
+- adj[i][j] = 0 if no edge exists
+- For undirected graphs: adj[i][j] = adj[j][i] (symmetric)
+- Space complexity: O(V²)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q4. What are the advantages and disadvantages of adjacency matrix?</div>
+                <div class="answer">Advantages:
+- Easy to implement and understand
+- Quick edge lookup: O(1)
+- Good for dense graphs
+Disadvantages:
+- Space inefficient for sparse graphs: O(V²)
+- Adding/removing vertices is expensive</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q5. What is an adjacency list?</div>
+                <div class="answer">Array of linked lists where:
+- Each vertex has a list of its adjacent vertices
+- adj[i] contains all vertices connected to vertex i
+- Space complexity: O(V + E)
+- Better for sparse graphs</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q6. What is the difference between BFS and DFS?</div>
+                <div class="answer">BFS (Breadth First Search):
+- Explores level by level (breadth-wise)
+- Uses queue data structure
+- Finds shortest path in unweighted graphs
+- Space: O(V), Time: O(V + E)
+
+DFS (Depth First Search):
+- Explores as deep as possible (depth-wise)
+- Uses stack (recursion or explicit)
+- Good for topological sorting, cycle detection
+- Space: O(V), Time: O(V + E)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q7. What are the applications of BFS?</div>
+                <div class="answer">- Shortest path in unweighted graphs
+- Level order traversal of trees
+- Finding connected components
+- Bipartite graph checking
+- Web crawling (breadth-first)
+- Social networking (friends at distance k)</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q8. What are the applications of DFS?</div>
+                <div class="answer">- Topological sorting
+- Cycle detection in graphs
+- Finding strongly connected components
+- Maze solving
+- Backtracking algorithms
+- Tree/graph traversal</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q9. What is the time complexity of BFS and DFS?</div>
+                <div class="answer">Both BFS and DFS:
+- Adjacency Matrix: O(V²)
+- Adjacency List: O(V + E)
+Where V = vertices, E = edges</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q10. What is the space complexity of BFS and DFS?</div>
+                <div class="answer">BFS: O(V) for queue and visited array
+DFS: O(V) for stack/recursion and visited array
+In worst case, queue/stack can hold all vertices</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q11. How do you detect a cycle in an undirected graph using DFS?</div>
+                <div class="answer">During DFS, if we encounter a visited vertex that is not the parent of current vertex, then there's a cycle.
+Keep track of parent to avoid going back to immediate parent.</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q12. How do you detect a cycle in a directed graph using DFS?</div>
+                <div class="answer">Use three colors:
+- White (0): Unvisited
+- Gray (1): Currently being processed
+- Black (2): Completely processed
+If we encounter a gray vertex during DFS, there's a back edge (cycle).</div>
+            </div>
+            
+            <div class="question-item">
+                <div class="question">Q13. What is a connected graph?</div>
+                <div class="answer">An undirected graph where there's a path between every pair of vertices.
+For directed graphs, it's called strongly connected if there's a directed path between every pair.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLab(labId) {
+            // Hide all lab contents
+            const contents = document.querySelectorAll('.lab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.lab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected lab content
+            document.getElementById(labId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+        
+        function searchQuestions() {
+            const searchTerm = event.target.value.toLowerCase();
+            const activeContent = document.querySelector('.lab-content.active');
+            const questions = activeContent.querySelectorAll('.question-item');
+            
+            questions.forEach(item => {
+                const questionText = item.querySelector('.question').textContent.toLowerCase();
+                const answerText = item.querySelector('.answer').textContent.toLowerCase();
+                
+                if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

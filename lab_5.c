@@ -21,3 +21,11 @@ int main() {
     display(h);
     return 0;
 }
+
+/*
+Enter nodes: 3
+Data: 10
+Data: 20
+Data: 30
+10 -> 20 -> 30 -> NULL
+*/

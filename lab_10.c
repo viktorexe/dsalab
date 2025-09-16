@@ -26,3 +26,15 @@ int main() {
     printf("DFS: "); dfs(g, n, s); printf("\n");
     return 0;
 }
+
+/*
+Vertices: 4
+Matrix:
+0 1 1 0
+1 0 0 1
+1 0 0 1
+0 1 1 0
+Start: 0
+BFS: 0 1 2 3
+DFS: 0 1 3 2
+*/

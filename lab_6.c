@@ -13,3 +13,11 @@ int main() {
     printf("Factorial: %d\n", fact(n));
     return 0;
 }
+
+/*
+30 20 10
+Popped: 30
+20 10
+Enter n: 5
+Factorial: 120
+*/

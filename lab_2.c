@@ -21,3 +21,16 @@ int main() {
     }
     return 0;
 }
+
+/*
+Enter rows cols: 2 2
+Enter matrix 1:
+1 2
+3 4
+Enter matrix 2:
+5 6
+7 8
+Sum:
+6 8
+10 12
+*/

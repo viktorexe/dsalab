@@ -1,0 +1,148 @@
+LAB 9 VIVA QUESTIONS AND ANSWERS
+
+=== LAB 9: BINARY SEARCH TREE (BST) ===
+
+Q1. What is a Binary Search Tree (BST)?
+A1. A BST is a binary tree with ordering property:
+    - All nodes in left subtree < root node
+    - All nodes in right subtree > root node
+    - Both left and right subtrees are also BSTs
+    - No duplicate values (in standard BST)
+
+Q2. What are the advantages of a BST?
+A2. - Efficient searching: O(log n) average case
+     - Inorder traversal gives sorted sequence
+     - Dynamic size (can grow/shrink)
+     - Efficient insertion and deletion
+     - Range queries possible
+     - No need to sort data beforehand
+
+Q3. What is the time complexity of search in BST?
+A3. Best case: O(1) - element is root
+    Average case: O(log n) - balanced tree
+    Worst case: O(n) - skewed tree (becomes like linked list)
+
+Q4. What is the time complexity of insertion in BST?
+A4. Same as search complexity:
+    Best case: O(1), Average case: O(log n), Worst case: O(n)
+    We need to find the correct position first, then insert
+
+Q5. What is the time complexity of deletion in BST?
+A5. Same as search complexity: O(log n) average, O(n) worst case
+    Steps: Find node + Handle three deletion cases
+
+Q6. Can BST contain duplicate values?
+A6. Standard BST doesn't allow duplicates. However, variations can handle duplicates by:
+    - Storing count in each node
+    - Allowing duplicates in left OR right subtree consistently
+    - Using <= or >= in one direction
+
+Q7. What are the three cases of deletion in BST?
+A7. Case 1: Node has no children (leaf) - Simply delete
+    Case 2: Node has one child - Replace node with its child
+    Case 3: Node has two children - Replace with inorder successor or predecessor
+
+Q8. What is inorder successor and predecessor?
+A8. Inorder Successor: Next larger element (leftmost node in right subtree)
+    Inorder Predecessor: Next smaller element (rightmost node in left subtree)
+
+Q9. How do you find minimum and maximum elements in BST?
+A9. Minimum: Keep going left until you reach leftmost node
+    Maximum: Keep going right until you reach rightmost node
+    Time complexity: O(h) where h is height
+
+Q10. What is a balanced BST?
+A10. A BST where height difference between left and right subtrees of any node is at most 1.
+     Examples: AVL tree, Red-Black tree
+     Ensures O(log n) operations
+
+Q11. What happens when BST becomes skewed?
+A11. When elements are inserted in sorted order, BST becomes a linear chain (skewed tree).
+     Performance degrades to O(n) for all operations, similar to linked list.
+
+Q12. How do you check if a binary tree is a valid BST?
+A12. Method 1: Inorder traversal should give sorted sequence
+     Method 2: For each node, check if it lies within valid range [min, max]
+     Method 3: Recursively check left < root < right for all nodes
+
+Q13. What is the space complexity of BST operations?
+A13. Insertion/Deletion/Search: O(h) due to recursion stack
+     Traversal: O(h) for recursive, O(1) for iterative
+     h = log n for balanced tree, h = n for skewed tree
+
+Q14. How do you convert a sorted array to balanced BST?
+A14. Use divide and conquer:
+     - Take middle element as root
+     - Recursively build left subtree from left half
+     - Recursively build right subtree from right half
+     Time: O(n), ensures balanced tree
+
+Q15. What are the applications of BST?
+A15. - Database indexing
+     - Expression parsing
+     - File systems
+     - Priority queues (with modifications)
+     - Auto-complete features
+     - Range queries in databases
+
+Q16. How do you find kth smallest element in BST?
+A16. Method 1: Inorder traversal and return kth element - O(n)
+     Method 2: Modified inorder with counter - O(k)
+     Method 3: Augment nodes with subtree size - O(log n)
+
+Q17. What is the difference between BST and heap?
+A17. BST: Inorder gives sorted sequence, search O(log n), not complete tree
+     Heap: Root is min/max, insertion O(log n), complete binary tree, no search operation
+
+Q18. How do you find Lowest Common Ancestor (LCA) in BST?
+A18. Start from root:
+     - If both nodes are smaller than root, go left
+     - If both nodes are larger than root, go right
+     - Otherwise, current node is LCA
+     Time: O(h)
+
+Q19. Can you perform range search in BST?
+A19. Yes, efficiently. To find all elements in range [a, b]:
+     - If root < a, search only right subtree
+     - If root > b, search only left subtree
+     - If a <= root <= b, include root and search both subtrees
+
+Q20. What is the difference between BST and AVL tree?
+A20. BST: No balancing, can become skewed, O(n) worst case
+     AVL: Self-balancing, height difference ≤ 1, guaranteed O(log n)
+     AVL has overhead of rotations and balance factor maintenance
+
+Q21. How do you merge two BSTs?
+A21. Method 1: Inorder traversal of both + merge sorted arrays + build BST
+     Method 2: Insert all elements of one BST into another
+     Method 3: Convert to sorted linked lists + merge + build BST
+
+Q22. What is Morris traversal?
+A22. Inorder traversal without recursion or stack, using threading.
+     Temporarily modify tree structure to create threads, then restore.
+     Space complexity: O(1)
+
+Q23. How do you check if two BSTs are identical?
+A23. Method 1: Compare structure and values recursively
+     Method 2: Compare inorder and preorder traversals
+     Method 3: Serialize both trees and compare strings
+
+Q24. What is the successor of a node in BST?
+A24. Case 1: Node has right subtree - leftmost node in right subtree
+     Case 2: No right subtree - first ancestor where node is in left subtree
+
+Q25. How do you convert BST to sorted doubly linked list?
+A25. Use inorder traversal:
+     - Recursively convert left subtree
+     - Connect current node between left and right parts
+     - Recursively convert right subtree
+     Modify left/right pointers to act as prev/next
+
+PRACTICAL TIPS:
+- Always maintain BST property during insertion/deletion
+- Practice all three deletion cases thoroughly
+- Understand the relationship between inorder traversal and sorted order
+- Remember that BST performance depends on balance
+- Practice recursive thinking for tree problems
+- Handle edge cases: empty tree, single node, root deletion
+- Understand when BST degrades to linked list performance

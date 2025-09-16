@@ -28,3 +28,11 @@ int main() {
     printf("Binary: %s\n", pos != -1 ? "Found" : "Not Found");
     return 0;
 }
+
+/*
+Enter n: 5
+Enter elements: 10 20 30 40 50
+Search: 30
+Linear: Found
+Binary: Found
+*/
