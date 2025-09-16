@@ -1,0 +1,139 @@
+LAB 5 AND 6 VIVA QUESTIONS AND ANSWERS
+
+=== LAB 5: LINKED LIST OPERATIONS ===
+
+Q1. What is the difference between an array and a linked list?
+A1. Array: Contiguous memory, fixed size, random access O(1), no extra memory for pointers
+    Linked List: Non-contiguous memory, dynamic size, sequential access O(n), extra memory for pointers
+
+Q2. What are the types of linked lists?
+A2. - Singly Linked List: Each node points to next node
+     - Doubly Linked List: Each node has pointers to both next and previous nodes
+     - Circular Linked List: Last node points back to first node
+     - Circular Doubly Linked List: Combination of circular and doubly
+
+Q3. How is memory allocated for nodes in linked list?
+A3. Memory is allocated dynamically using malloc() function. Each node is allocated separately in heap memory, not necessarily contiguous.
+
+Q4. What is a node in linked list?
+A4. A node is a structure containing:
+    - Data field: stores the actual data
+    - Pointer field: stores address of next node
+    struct Node { int data; struct Node* next; };
+
+Q5. What are the advantages of linked lists over arrays?
+A5. - Dynamic size (can grow/shrink during runtime)
+     - Efficient insertion/deletion O(1) if position known
+     - No memory waste
+     - No need to declare size beforehand
+
+Q6. What are the disadvantages of linked lists?
+A6. - Extra memory for storing pointers
+     - No random access (sequential access only)
+     - Not cache friendly due to non-contiguous memory
+     - Cannot use binary search directly
+
+Q7. What is the time complexity of insertion in linked list?
+A7. At beginning: O(1)
+    At end: O(n) if no tail pointer, O(1) with tail pointer
+    At given position: O(n) to reach position + O(1) to insert
+
+Q8. What is the time complexity of deletion in linked list?
+A8. From beginning: O(1)
+    From end: O(n) for singly linked list
+    From given position: O(n) to reach position + O(1) to delete
+
+Q9. How do you detect a loop in linked list?
+A9. Use Floyd's Cycle Detection (Tortoise and Hare):
+    - Use two pointers: slow (moves 1 step) and fast (moves 2 steps)
+    - If they meet, there's a loop
+    - If fast reaches NULL, no loop
+
+Q10. What is the space complexity of linked list operations?
+A10. Insertion/Deletion: O(1) - only temporary variables
+     Traversal: O(1) for iterative, O(n) for recursive (due to function call stack)
+
+=== LAB 6: STACK AND RECURSION ===
+
+Q11. What is a stack and what are its characteristics?
+A11. Stack is a LIFO (Last In First Out) data structure. Characteristics:
+     - Elements added/removed from same end (top)
+     - Two main operations: push (insert) and pop (delete)
+     - Access only to top element
+
+Q12. What are the basic operations of stack?
+A12. - Push: Add element to top
+     - Pop: Remove element from top
+     - Peek/Top: View top element without removing
+     - isEmpty: Check if stack is empty
+     - isFull: Check if stack is full (for array implementation)
+
+Q13. What are the applications of stacks?
+A13. - Function call management (call stack)
+     - Expression evaluation and conversion
+     - Undo operations in editors
+     - Browser back button
+     - Balanced parentheses checking
+     - Depth First Search (DFS)
+
+Q14. What is stack overflow and underflow?
+A14. Overflow: Trying to push when stack is full (in array implementation)
+     Underflow: Trying to pop from empty stack
+
+Q15. What are the different ways to implement a stack?
+A15. - Array implementation: Fixed size, fast access, memory efficient
+     - Linked list implementation: Dynamic size, extra memory for pointers
+
+Q16. What is the time complexity of stack operations?
+A16. All basic operations (push, pop, peek) have O(1) time complexity in both array and linked list implementations.
+
+Q17. What is recursion?
+A17. Recursion is a programming technique where a function calls itself to solve a smaller instance of the same problem.
+
+Q18. What are the components of recursion?
+A18. - Base case: Condition to stop recursion
+     - Recursive case: Function calls itself with modified parameters
+     - Progress towards base case: Parameters should move towards base case
+
+Q19. What is the difference between iteration and recursion?
+A19. Iteration: Uses loops, explicit stack not needed, generally faster, less memory
+     Recursion: Uses function calls, implicit stack used, more elegant for some problems, more memory
+
+Q20. What is tail recursion?
+A20. Tail recursion occurs when the recursive call is the last operation in the function. It can be optimized to use constant stack space.
+
+Q21. What are the advantages and disadvantages of recursion?
+A21. Advantages: Clean code, natural for tree/graph problems, mathematical elegance
+     Disadvantages: More memory usage, slower due to function call overhead, risk of stack overflow
+
+Q22. How is the call stack used in recursion?
+A22. Each recursive call creates a new stack frame containing:
+     - Local variables
+     - Parameters
+     - Return address
+     Stack frames are popped when functions return
+
+Q23. What is the space complexity of recursive functions?
+A23. O(n) where n is the maximum depth of recursion due to the call stack. Each recursive call uses stack space.
+
+Q24. When should you use recursion vs iteration?
+A24. Use recursion for:
+     - Tree/graph traversals
+     - Divide and conquer algorithms
+     - Mathematical problems with recursive nature
+     Use iteration for:
+     - Simple loops
+     - Performance-critical code
+     - When stack space is limited
+
+Q25. What is memoization in recursion?
+A25. Memoization is an optimization technique where we store results of expensive function calls and return cached result when same inputs occur again.
+
+PRACTICAL TIPS:
+- Always check for NULL pointers in linked list operations
+- Free allocated memory to prevent memory leaks
+- Implement both iterative and recursive versions for comparison
+- Understand the relationship between recursion and stack
+- Practice tracing recursive calls step by step
+- Be careful about base cases in recursion to avoid infinite loops
+- Consider space complexity when choosing between recursion and iteration

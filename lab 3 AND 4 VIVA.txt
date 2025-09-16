@@ -1,0 +1,114 @@
+LAB 3 AND 4 VIVA QUESTIONS AND ANSWERS
+
+=== LAB 3: SEARCHING ALGORITHMS ===
+
+Q1. What is the difference between linear and binary search?
+A1. Linear search checks each element sequentially from start to end. Binary search divides the sorted array in half and compares with middle element, eliminating half the search space each time.
+
+Q2. When is binary search preferable over linear search?
+A2. Binary search is preferable when:
+- Array is sorted
+- Large dataset (n > 100)
+- Multiple searches on same data
+- Time complexity matters (O(log n) vs O(n))
+
+Q3. What is the time complexity of linear search?
+A3. Best case: O(1) - element found at first position
+    Average case: O(n/2) = O(n)
+    Worst case: O(n) - element at last position or not found
+
+Q4. What is the time complexity of binary search?
+A4. Best case: O(1) - element found at middle
+    Average case: O(log n)
+    Worst case: O(log n)
+
+Q5. What is the space complexity of both searches?
+A5. Linear search: O(1) - no extra space needed
+    Binary search: O(1) for iterative, O(log n) for recursive
+
+Q6. Can binary search be applied to unsorted arrays?
+A6. No, binary search requires the array to be sorted. If unsorted, we must sort first (O(n log n)) or use linear search.
+
+Q7. What happens if we apply binary search on unsorted array?
+A7. It may give incorrect results or fail to find existing elements because the algorithm assumes sorted order for decision making.
+
+Q8. Which search is better for small arrays?
+A8. Linear search is often better for small arrays (n < 10-20) due to:
+- Simple implementation
+- No sorting requirement
+- Lower constant factors
+
+Q9. What is the mid calculation formula in binary search and why?
+A9. mid = left + (right - left) / 2
+This prevents integer overflow that could occur with (left + right) / 2 when left and right are large.
+
+Q10. Can we implement binary search recursively?
+A10. Yes, binary search can be implemented both iteratively and recursively. Recursive version is more intuitive but uses O(log n) extra space for function calls.
+
+=== LAB 4: BUBBLE SORT ===
+
+Q11. What is bubble sort and how does it work?
+A11. Bubble sort repeatedly compares adjacent elements and swaps them if they're in wrong order. Larger elements "bubble up" to their correct positions like air bubbles in water.
+
+Q12. What is the time complexity of bubble sort?
+A12. Best case: O(n) - when array is already sorted (with optimization)
+     Average case: O(n²)
+     Worst case: O(n²) - when array is reverse sorted
+
+Q13. What is the space complexity of bubble sort?
+A13. O(1) - bubble sort is an in-place sorting algorithm requiring only constant extra space for temporary variables.
+
+Q14. Is bubble sort stable? Why?
+A14. Yes, bubble sort is stable because equal elements are never swapped. The relative order of equal elements remains unchanged.
+
+Q15. How many passes does bubble sort make?
+A15. Maximum n-1 passes for n elements. In each pass, at least one element reaches its correct position.
+
+Q16. How many comparisons does bubble sort make?
+A16. Total comparisons = n(n-1)/2 = O(n²)
+     Pass 1: n-1 comparisons
+     Pass 2: n-2 comparisons
+     ...
+     Pass n-1: 1 comparison
+
+Q17. How can we optimize bubble sort?
+A17. Add a flag to check if any swaps occurred in a pass. If no swaps, array is sorted and we can terminate early.
+
+Q18. Which sorting algorithms are more efficient than bubble sort?
+A18. Quick sort O(n log n), Merge sort O(n log n), Heap sort O(n log n), Insertion sort O(n²) but better constants.
+
+Q19. When might bubble sort be preferred?
+A19. - Very small datasets (n < 10)
+     - Educational purposes (easy to understand)
+     - When simplicity is more important than efficiency
+     - Nearly sorted data with optimization
+
+Q20. What is the best case scenario for bubble sort?
+A20. When the array is already sorted. With optimization (early termination), it takes only O(n) time with one pass.
+
+Q21. Can bubble sort work on linked lists?
+A21. Yes, but it's inefficient because accessing elements requires traversal. Array implementation is preferred.
+
+Q22. What happens in each pass of bubble sort?
+A22. In pass i:
+     - Compare adjacent elements from start to n-i-1
+     - Swap if left > right
+     - Largest element among remaining unsorted elements reaches its position
+
+Q23. How do you implement bubble sort in ascending order?
+A23. Compare arr[j] > arr[j+1], if true then swap. This moves larger elements towards the end.
+
+Q24. How do you implement bubble sort in descending order?
+A24. Compare arr[j] < arr[j+1], if true then swap. This moves smaller elements towards the end.
+
+Q25. What is the difference between bubble sort and selection sort?
+A25. Bubble sort: Compares adjacent elements, multiple swaps per pass
+     Selection sort: Finds minimum/maximum element, one swap per pass
+     Both have O(n²) time complexity but selection sort makes fewer swaps.
+
+PRACTICAL TIPS:
+- Always test with sorted, reverse sorted, and random arrays
+- Implement the optimized version with early termination
+- Understand why binary search needs sorted data
+- Practice tracing through algorithms step by step
+- Know when to use which algorithm based on data characteristics

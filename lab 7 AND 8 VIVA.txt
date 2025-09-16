@@ -1,0 +1,135 @@
+LAB 7 AND 8 VIVA QUESTIONS AND ANSWERS
+
+=== LAB 7: QUEUE IMPLEMENTATION ===
+
+Q1. What is a queue and what are its characteristics?
+A1. Queue is a FIFO (First In First Out) data structure. Characteristics:
+    - Elements inserted at rear/back
+    - Elements removed from front
+    - Linear data structure
+    - Two pointers: front and rear
+
+Q2. What is the difference between stack and queue?
+A2. Stack: LIFO structure, single end operations (top), used for function calls, undo operations
+    Queue: FIFO structure, two end operations (front/rear), used for scheduling, BFS
+
+Q3. What are the basic operations of queue?
+A3. - Enqueue: Add element at rear
+     - Dequeue: Remove element from front
+     - Front/Peek: View front element without removing
+     - isEmpty: Check if queue is empty
+     - isFull: Check if queue is full (array implementation)
+
+Q4. What are the applications of queues?
+A4. - CPU scheduling in operating systems
+     - Breadth First Search (BFS)
+     - Handling requests in web servers
+     - Print job scheduling
+     - Call center phone systems
+     - Buffer for data streams
+
+Q5. What is a circular queue and why is it needed?
+A5. Circular queue treats the array as circular - rear wraps around to beginning when it reaches end. 
+    Needed because: Linear queue wastes space even when positions are available at beginning after dequeue operations.
+
+Q6. What are the advantages of circular queue over linear queue?
+A6. - Better memory utilization
+     - No shifting of elements required
+     - Constant time operations
+     - Solves false overflow problem
+
+Q7. How do you implement a queue using linked list?
+A7. Use two pointers: front (points to first node) and rear (points to last node)
+    Enqueue: Add at rear, Dequeue: Remove from front
+    Advantages: Dynamic size, no overflow condition
+
+Q8. What is the time complexity of queue operations?
+A8. All basic operations (enqueue, dequeue, front) have O(1) time complexity in both array and linked list implementations.
+
+Q9. What is queue overflow and underflow?
+A9. Overflow: Trying to enqueue when queue is full (in array implementation)
+    Underflow: Trying to dequeue from empty queue
+
+Q10. How do you check if a circular queue is full or empty?
+A10. Empty: front == -1 or front > rear (in some implementations)
+     Full: (rear + 1) % size == front
+     Alternative: Use a counter variable to track number of elements
+
+=== LAB 8: TREE OPERATIONS ===
+
+Q11. What is a binary tree?
+A11. A binary tree is a hierarchical data structure where each node has at most two children, called left child and right child.
+
+Q12. What are the different types of tree traversals?
+A12. - Inorder: Left → Root → Right (gives sorted order in BST)
+     - Preorder: Root → Left → Right (used for copying tree)
+     - Postorder: Left → Right → Root (used for deleting tree)
+     - Level order: Visit nodes level by level (BFS)
+
+Q13. What is the difference between tree and binary tree?
+A13. Tree: Each node can have any number of children
+     Binary Tree: Each node has at most 2 children (left and right)
+
+Q14. What are the properties of binary trees?
+A14. - Maximum nodes at level i: 2^i (level starts from 0)
+     - Maximum nodes in tree of height h: 2^(h+1) - 1
+     - Minimum height for n nodes: log₂(n+1) - 1
+     - For n nodes, number of edges = n-1
+
+Q15. What is a complete binary tree?
+A15. A binary tree where all levels are completely filled except possibly the last level, which is filled from left to right.
+
+Q16. What is a full binary tree?
+A16. A binary tree where every node has either 0 or 2 children (no node has exactly 1 child).
+
+Q17. What is a perfect binary tree?
+A17. A binary tree where all internal nodes have 2 children and all leaf nodes are at the same level.
+
+Q18. What is the difference between binary tree and binary search tree?
+A18. Binary Tree: No ordering property, can have any values
+     Binary Search Tree: Left subtree < Root < Right subtree, enables efficient searching
+
+Q19. How do you find the height of a binary tree?
+A19. Height = max(height of left subtree, height of right subtree) + 1
+     Base case: height of NULL tree = -1 or height of single node = 0
+
+Q20. What is the time complexity of tree traversals?
+A20. All traversals (inorder, preorder, postorder) have O(n) time complexity as we visit each node exactly once.
+
+Q21. What is the space complexity of tree traversals?
+A21. Recursive: O(h) where h is height of tree (due to call stack)
+     Iterative: O(h) for stack space in worst case
+     Best case: O(log n) for balanced tree, Worst case: O(n) for skewed tree
+
+Q22. How do you implement tree traversal iteratively?
+A22. Use explicit stack:
+     - Preorder: Push root, pop and print, push right then left child
+     - Inorder: Go left pushing nodes, pop and print, go right
+     - Postorder: Use two stacks or modified approach
+
+Q23. What are the applications of trees?
+A23. - File systems (directory structure)
+     - Expression parsing (syntax trees)
+     - Database indexing (B-trees)
+     - Decision making (decision trees)
+     - Huffman coding (compression)
+     - Game trees (chess, tic-tac-toe)
+
+Q24. How do you count nodes in a binary tree?
+A24. Count = count(left subtree) + count(right subtree) + 1
+     Base case: count of NULL tree = 0
+
+Q25. What is level order traversal and how to implement it?
+A25. Level order traversal visits nodes level by level from left to right.
+     Implementation: Use queue
+     - Start with root in queue
+     - While queue not empty: dequeue node, print it, enqueue its children
+
+PRACTICAL TIPS:
+- Understand the difference between different queue implementations
+- Practice drawing tree traversals step by step
+- Remember that inorder traversal of BST gives sorted sequence
+- Use recursion for tree problems - it's more natural
+- Always handle NULL/empty cases in tree operations
+- Understand the relationship between tree height and time complexity
+- Practice implementing both recursive and iterative versions of traversals
